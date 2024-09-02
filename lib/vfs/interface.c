@@ -775,7 +775,7 @@ mc_tmpdir (void)
     static const char *tmpdir = NULL;
     const char *sys_tmp;
     struct stat st;
-    gchar* template;
+    gchar *template;
 
     /* Check if already correctly initialized */
     if (tmpdir != NULL && lstat (tmpdir, &st) == 0 && S_ISDIR (st.st_mode) &&
@@ -791,8 +791,8 @@ mc_tmpdir (void)
     }
 
     template = g_build_filename (sys_tmp, "mc-XXXXXX", (char *) NULL);
-    g_strlcpy(buffer, template, sizeof (buffer));
-    g_free(template);
+    g_strlcpy (buffer, template, sizeof (buffer));
+    g_free (template);
 
     tmpdir = g_mkdtemp (buffer);
     if (tmpdir != NULL)
